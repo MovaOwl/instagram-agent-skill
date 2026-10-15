@@ -26,16 +26,45 @@ import json
 import re
 import sys
 
-WORD_RE = re.compile(r"[A-Za-z0-9$%'’-]+")
+WORD_RE = re.compile(r"[$]?[^\W_][\w$%'’₽-]*")
 SENT_RE = re.compile(r"[^.!?]+[.!?]*")
-CONCRETE_RE = re.compile(r"\$\s?\d|\b\d[\d,.]*\b|(?<!^)\b[A-Z][a-z]{2,}\b", re.MULTILINE)
+CONCRETE_RE = re.compile(
+    r"\$\s?\d|\b\d[\d,.]*\b|(?<!^)\b[A-ZА-ЯЁ][a-zа-яё]{2,}\b"
+    # Russian numbers and money said out loud: "три миллиона", "двести тысяч"
+    r"|(?i:\b(?:тысяч|миллион|миллиард|лям|косар|рубл|задат|ипотек|комисс|налог|штраф)\w*)"
+    r"|\b[А-ЯЁ]{2,6}\b"   # ЕГРН, МФЦ, ДДУ, ИЖС: abbreviations are concrete
+    r"|(?i:\b(?:двух|трёх|трех|два|две|три|четыре|пять|шесть|семь|восемь|девять|десять|двадцать|тридцать|сорок|пятьдесят|сто|двести|триста|пятьсот|половин\w*)\b)",
+    re.MULTILINE)
 STOPWORDS = {
     "the", "a", "an", "and", "or", "but", "if", "of", "to", "in", "on", "for",
     "with", "that", "this", "it", "is", "are", "was", "were", "be", "been",
     "you", "your", "i", "my", "me", "we", "our", "they", "them", "he", "she",
     "so", "just", "not", "no", "do", "did", "does", "have", "has", "had",
     "will", "can", "at", "as", "by", "from", "out", "up", "off", "one", "all",
+    # Russian
+    "и", "а", "но", "или", "в", "во", "на", "с", "со", "к", "ко", "по", "за",
+    "из", "от", "до", "у", "о", "об", "для", "про", "что", "это", "этот", "эта",
+    "эти", "как", "так", "не", "ни", "да", "нет", "же", "ли", "бы", "то", "вот",
+    "я", "ты", "вы", "мы", "он", "она", "они", "оно", "мне", "меня", "тебе",
+    "тебя", "вам", "вас", "нас", "нам", "мой", "моя", "мое", "моё", "мои",
+    "твой", "твоя", "ваш", "ваша", "наш", "его", "её", "ее", "их", "был",
+    "была", "было", "были", "есть", "будет", "уже", "еще", "ещё", "только",
+    "все", "всё", "всех", "один", "одна", "одно", "одной", "одну", "когда",
+    "если", "чтобы", "там", "тут", "здесь", "очень", "просто",
 }
+
+
+def is_cyrillic(text):
+    cyr = len(re.findall(r"[а-яё]", text, re.IGNORECASE))
+    lat = len(re.findall(r"[a-z]", text, re.IGNORECASE))
+    return cyr > lat
+
+
+def loop_key(word):
+    """Russian inflects: "задаток" in the hook and "задатка" at the end are the
+    same word for a viewer, so compare a crude 5-letter stem."""
+    w = word.lower()
+    return w[:5] if re.match(r"[а-яё]", w) and len(w) > 5 else w
 
 HOOK_WINDOW = 3.0        # seconds. Past this, the thumb has already decided.
 MAX_BEAT = 4.0           # seconds on one idea with no change on screen.
@@ -146,9 +175,9 @@ def analyse(raw, wpm=165, target=None):
             run, start = 0, None
 
     # Does the last line hand you back to the first one?
-    first = {w.lower() for w in words(rows[0]["text"]) if w.lower() not in STOPWORDS}
-    last = {w.lower() for w in words(rows[-1]["text"]) if w.lower() not in STOPWORDS}
-    loop = sorted(pretty(w) for w in first & last)
+    first = {loop_key(w): w for w in words(rows[0]["text"]) if w.lower() not in STOPWORDS}
+    last = {loop_key(w) for w in words(rows[-1]["text"]) if w.lower() not in STOPWORDS}
+    loop = sorted(pretty(first[k]) for k in first.keys() & last)
     if loop:
         notes.append(f"Loops: the last beat repeats \"{', '.join(loop[:3])}\" from the hook. "
                      "Second watches are free reach.")
@@ -181,7 +210,7 @@ def render(a, out=sys.stdout):
     print("\n" + head, file=out)
     print("=" * max(len(head), 72), file=out)
     for r in a["beats"]:
-        label = f"{r['label']:<8}" if r["label"] else " " * 8
+        label = f"{r['label']:<9}" if r["label"] else " " * 9
         print(f"  {tc(r['start'])}  {r['dur']:4.1f}s  {label}{r['text']}", file=out)
         for f in r["flags"]:
             print(f"  {'':>6}  {'':>5}  {'':<8}^ {f}", file=out)
@@ -194,13 +223,15 @@ def render(a, out=sys.stdout):
 def main():
     ap = argparse.ArgumentParser(description="Time a Reel script into a beat sheet.")
     ap.add_argument("input", nargs="?", default="-", help="script file, or - for stdin")
-    ap.add_argument("--wpm", type=float, default=165, help="speaking rate (default 165)")
+    ap.add_argument("--wpm", type=float, default=None,
+                    help="speaking rate (default 165 for English, 140 for Russian)")
     ap.add_argument("--target", type=float, help="target length in seconds")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
     raw = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
-    a = analyse(raw, wpm=args.wpm, target=args.target)
+    wpm = args.wpm or (140 if is_cyrillic(raw) else 165)
+    a = analyse(raw, wpm=wpm, target=args.target)
     if not a:
         print("empty script", file=sys.stderr)
         sys.exit(2)
