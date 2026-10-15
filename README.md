@@ -52,6 +52,20 @@ reels and say "write my voice.md from these". Every skill reads that file. It
 matters more here than on other platforms, because you have to say the words
 out loud.
 
+## Русский язык (форк MovaOwl)
+
+Скрипты `/ig-reel`, `/ig-viral`, `/ig-caption` и детектор `/ig-human` понимают
+кириллицу. В оригинале русский текст считался пустым, и хуки получали ноль слов.
+У всех 26 хук-формул есть русские версии с примерами из недвижимости
+(`template_ru`, `example_ru`, `on_screen_ru`, `match_ru` в `hooks.json`).
+Темп речи для русского автоматически ставится 140 слов/мин. Словарь «слопа»
+у хуманайзера пока только английский.
+
+```
+python3 skills/ig-reel/hookscore.py --hook "Не вноси задаток, пока не проверишь эти 3 бумаги"
+python3 skills/ig-reel/beats.py script.txt --target 30
+```
+
 ## The thirteen
 
 | command | what it does |

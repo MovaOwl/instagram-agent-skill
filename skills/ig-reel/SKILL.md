@@ -40,6 +40,17 @@ python3 beats.py script.txt --target 30     # timed beat sheet before you shoot
    file, and it is the user's own evidence about which formulas are working in
    their niche right now. It beats the defaults in this file.
 
+## Russian
+
+If the user writes or films in Russian, work in Russian end to end. Every
+formula in `hooks.json` has `template_ru`, `example_ru`, `on_screen_ru` and
+`match_ru`; use those instead of translating the English ones. Both scripts
+detect Cyrillic on their own: `hookscore.py` scores Russian stakes, numbers
+said out loud ("триста тысяч"), abbreviations (ЕГРН, МФЦ) and openers like
+«всем привет» / «в этом видео»; `beats.py` times Russian at 140 wpm unless
+`--wpm` says otherwise. The examples are real-estate flavoured and their
+figures are placeholders: never put them under the user's name as facts.
+
 ## The shape
 
 A Reel is decided in the first two seconds and kept by the next five.

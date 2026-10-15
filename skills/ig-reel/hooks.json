@@ -18,7 +18,11 @@
       "on_screen": "$18,000 MISTAKE",
       "best_for": "Trust, fast. People finish the videos where you are the one who looks bad.",
       "trap": "A fake cost. 'It cost me my peace of mind' is not a number and everybody can hear that.",
-      "match": "\\$\\s?\\d[\\d,]*\\s+(?:is|was) what\\b|\\bcost (?:me|us|him|her|them)\\b|\\blost\\b[^.!?]{0,20}\\$\\s?\\d"
+      "match": "\\$\\s?\\d[\\d,]*\\s+(?:is|was) what\\b|\\bcost (?:me|us|him|her|them)\\b|\\blost\\b[^.!?]{0,20}\\$\\s?\\d",
+      "template_ru": "{Конкретная сумма} — столько мне стоила {одна ошибка}.",
+      "example_ru": "300 тысяч — столько мне стоила одна строчка в договоре.",
+      "on_screen_ru": "ОШИБКА НА 300 000",
+      "match_ru": "столько\\s+(?:мне\\s+|нам\\s+)?(?:стоил|обош)\\w*|(?:стоил[аио]?|обошл[аио]сь|обошёлся)\\s+(?:мне|нам|клиент\\w*)|потерял\\w*[^.!?]{0,25}\\d"
     },
     {
       "id": 2,
@@ -28,7 +32,11 @@
       "on_screen": "STOP POSTING DAILY",
       "best_for": "Saves and arguments. The imperative gets attention that a statement does not.",
       "trap": "Telling people to stop doing something nobody does. The habit has to be one the viewer recognises in themselves.",
-      "match": "^\\s*(?:stop|quit|never|don'?t|dont|please)\\b[^.!?]{0,30}\\b(?:do|be|make|buy|use|start|say|post|send|take|charge)?\\b|\\b(?:do not|don'?t|dont|never) (?:do|be|make|buy|use|start|say|post|take)\\b|\\bquit your\\b"
+      "match": "^\\s*(?:stop|quit|never|don'?t|dont|please)\\b[^.!?]{0,30}\\b(?:do|be|make|buy|use|start|say|post|send|take|charge)?\\b|\\b(?:do not|don'?t|dont|never) (?:do|be|make|buy|use|start|say|post|take)\\b|\\bquit your\\b",
+      "template_ru": "Хватит {привычное действие}. Делай {альтернатива}.",
+      "example_ru": "Хватит выкладывать квартиру на все сайты сразу. Сначала поставь одну цену и посмотри звонки.",
+      "on_screen_ru": "ХВАТИТ ТАК ДЕЛАТЬ",
+      "match_ru": "^\\s*(?:хватит|перестань\\w*|не надо|стоп[,.]?)\\b"
     },
     {
       "id": 3,
@@ -38,7 +46,11 @@
       "on_screen": "YOUR FIRST 30 WILL FLOP",
       "best_for": "New audiences. It positions you as the person who says the quiet part.",
       "trap": "Picking a truth everybody already says. If the comments are agreeing before you finish, it was not a secret.",
-      "match": "\\b(?:nobody|no one|nobody ever)\\s+(?:ever\\s+)?(?:tells|told|talks|talked|says|said|mentions|teaches)\\b|\\bwhat (?:nobody|no one) (?:tells|says)\\b"
+      "match": "\\b(?:nobody|no one|nobody ever)\\s+(?:ever\\s+)?(?:tells|told|talks|talked|says|said|mentions|teaches)\\b|\\bwhat (?:nobody|no one) (?:tells|says)\\b",
+      "template_ru": "Никто не говорит, что {неудобная правда}.",
+      "example_ru": "Никто не говорит, что задаток можно вернуть, даже если сделка сорвалась по вашей вине.",
+      "on_screen_ru": "ОБ ЭТОМ МОЛЧАТ",
+      "match_ru": "\\bникто (?:не|вам не|тебе не) (?:говор|скаж|расскаж|объясн)\\w*|об этом (?:молчат|не говорят)"
     },
     {
       "id": 4,
@@ -48,7 +60,11 @@
       "on_screen": "$2,000 -> $12",
       "best_for": "Demos and tool videos. The price gap does the work.",
       "trap": "Overstating the replacement. If it replaced 60% of the job, say 60%, or the comments will say it for you.",
-      "match": "\\breplaced?\\b[^.!?]*\\$\\s?\\d|\\$\\s?\\d[^.!?]*\\breplaced?\\b|\\binstead of (?:paying|hiring)\\b"
+      "match": "\\breplaced?\\b[^.!?]*\\$\\s?\\d|\\$\\s?\\d[^.!?]*\\breplaced?\\b|\\binstead of (?:paying|hiring)\\b",
+      "template_ru": "{Эта штука} заменила {дорогую штуку} за {цену}.",
+      "example_ru": "Эта бесплатная выписка заменила юриста за 15 тысяч.",
+      "on_screen_ru": "ВМЕСТО ЮРИСТА",
+      "match_ru": "\\bзаменил\\w*\\b[^.!?]{0,40}\\b(?:за|вместо)\\b"
     },
     {
       "id": 5,
@@ -58,7 +74,11 @@
       "on_screen": "5 HOURS -> 20 MIN",
       "best_for": "Process videos where the payoff is speed. Reads instantly on screen.",
       "trap": "A ratio nobody believes. 40 hours to 4 seconds gets treated as a lie even when it is true.",
-      "match": "\\bused to take\\b|\\bnow (?:it )?(?:only )?takes?\\b|\\btakes? (?:me )?\\d+\\s*(?:sec|second|min|minute|hour|hr)"
+      "match": "\\bused to take\\b|\\bnow (?:it )?(?:only )?takes?\\b|\\btakes? (?:me )?\\d+\\s*(?:sec|second|min|minute|hour|hr)",
+      "template_ru": "Раньше {это} занимало у меня {долго}. Теперь {быстро}.",
+      "example_ru": "Раньше одобрение ипотеки ждали месяц. Сейчас я получаю ответ за два дня.",
+      "on_screen_ru": "МЕСЯЦ → 2 ДНЯ",
+      "match_ru": "\\bраньше\\b[^.!?]{0,40}\\b(?:занима|уходил|ждал)\\w*|\\bтеперь\\b[^.!?]{0,20}\\bза\\b"
     },
     {
       "id": 6,
@@ -68,7 +88,11 @@
       "on_screen": "60 DAYS. REAL NUMBERS.",
       "best_for": "Experiments. Pairs with a screen recording of the real dashboard, which is the whole value.",
       "trap": "Not showing the screen. A numbers video with no screen recording is a numbers claim.",
-      "match": "\\bi\\s+\\w+(?:ed)?\\s+[^.!?]{0,30}\\bfor\\s+\\d+\\s+(?:days?|weeks?|months?|years?)\\b|\\bhere (?:are|is) (?:the|my)\\b[^.!?]*\\bnumbers\\b|\\bwe(?:'ll| will)? do \\$\\s?\\d"
+      "match": "\\bi\\s+\\w+(?:ed)?\\s+[^.!?]{0,30}\\bfor\\s+\\d+\\s+(?:days?|weeks?|months?|years?)\\b|\\bhere (?:are|is) (?:the|my)\\b[^.!?]*\\bnumbers\\b|\\bwe(?:'ll| will)? do \\$\\s?\\d",
+      "template_ru": "Я {делал что-то} {N дней}. Вот реальные цифры.",
+      "example_ru": "Я 30 дней звонил собственникам с Авито. Вот сколько из них стали клиентами.",
+      "on_screen_ru": "30 ДНЕЙ ЗВОНКОВ",
+      "match_ru": "\\bя\\b[^.!?]{0,30}\\b\\d+\\s*(?:дн|недел|месяц)\\w*|вот (?:реальные |честные )?цифры"
     },
     {
       "id": 7,
@@ -78,7 +102,11 @@
       "on_screen": "YOUR CAPTIONS ARE CUT",
       "best_for": "Teaching. The 'not your fault' half stops it reading as an insult, which is what kills this one.",
       "trap": "Skipping the absolution. 'You are doing it wrong' on its own makes people leave rather than learn.",
-      "match": "\\b(?:big(?:gest)?|common|the) mistake\\b|\\bmistake (?:that|people|i)\\b|\\byou'?(?:re| are) doing\\b[^.!?]*\\bwrong\\b|\\bdoing (?:it|this) wrong\\b"
+      "match": "\\b(?:big(?:gest)?|common|the) mistake\\b|\\bmistake (?:that|people|i)\\b|\\byou'?(?:re| are) doing\\b[^.!?]*\\bwrong\\b|\\bdoing (?:it|this) wrong\\b",
+      "template_ru": "Ты {делаешь это} неправильно, и это не твоя вина. {Решение}.",
+      "example_ru": "Ты неправильно торгуешься с продавцом, и это не твоя вина. Торг начинается с осмотра, а не с цены.",
+      "on_screen_ru": "ТЫ ТОРГУЕШЬСЯ НЕ ТАК",
+      "match_ru": "\\b(?:ты|вы)\\b[^.!?]{0,30}\\bнеправильно\\b|\\bне (?:твоя|ваша) вина\\b"
     },
     {
       "id": 8,
@@ -88,7 +116,11 @@
       "on_screen": "6 YEARS INSIDE",
       "best_for": "Authority without a credential slide. Works only if the years are real.",
       "trap": "Promising a secret and delivering the brochure. The comments are merciless about this one.",
-      "match": "\\bi (?:spent|worked|ran|was|have been)\\b[^.!?]*\\b\\d+\\s*\\+?\\s*years?\\b|\\bwe never (?:told|said|showed)\\b|\\bnobody (?:puts|tells you about)\\b|\\bi (?:sell|sold|run)\\b[^.!?]*\\$\\s?\\d"
+      "match": "\\bi (?:spent|worked|ran|was|have been)\\b[^.!?]*\\b\\d+\\s*\\+?\\s*years?\\b|\\bwe never (?:told|said|showed)\\b|\\bnobody (?:puts|tells you about)\\b|\\bi (?:sell|sold|run)\\b[^.!?]*\\$\\s?\\d",
+      "template_ru": "Я {N лет} {работаю внутри}. Вот о чём мы не говорим вслух.",
+      "example_ru": "Я пять лет работаю риелтором. Вот что агентства не говорят продавцам.",
+      "on_screen_ru": "ИЗНУТРИ АГЕНТСТВА",
+      "match_ru": "\\bя\\b[^.!?]{0,15}\\d+\\s*(?:лет|год)\\w*[^.!?]{0,30}|(?:не говорим|не скажут|не говорят) (?:вслух|клиентам|продавцам|покупателям)"
     },
     {
       "id": 9,
@@ -98,7 +130,11 @@
       "on_screen": "STEAL THIS",
       "best_for": "Saves and sends, which are the two metrics that move reach the most.",
       "trap": "The artifact not being on screen. If they cannot screenshot it, there is nothing to steal.",
-      "match": "^\\s*steal\\b|\\bsteal (?:this|these|my)\\b|^\\s*(?:here'?s|this is) (?:the|my) (?:exact|literal)\\b"
+      "match": "^\\s*steal\\b|\\bsteal (?:this|these|my)\\b|^\\s*(?:here'?s|this is) (?:the|my) (?:exact|literal)\\b",
+      "template_ru": "Укради {этот шаблон}. Я делал его {время}.",
+      "example_ru": "Укради этот список вопросов продавцу. Я собирал его три года.",
+      "on_screen_ru": "УКРАДИ СПИСОК",
+      "match_ru": "^\\s*(?:укради|забирай|сохрани|скопируй)\\b"
     },
     {
       "id": 10,
@@ -108,7 +144,11 @@
       "on_screen": "VIEWS BUT NO FOLLOWERS?",
       "best_for": "Qualifying hard. Fewer people stay, and the ones who do are the ones who buy.",
       "trap": "A situation so broad it qualifies nobody. 'If you want to grow' is not a situation.",
-      "match": "^\\s*if (?:you|i|we|your|my|they)\\b"
+      "match": "^\\s*if (?:you|i|we|your|my|they)\\b",
+      "template_ru": "Если ты {ситуация}, следующие {N секунд} это исправят.",
+      "example_ru": "Если квартира висит на Авито третий месяц, следующие 40 секунд для тебя.",
+      "on_screen_ru": "ВИСИТ 3 МЕСЯЦА?",
+      "match_ru": "^\\s*если (?:ты|вы|у тебя|у вас|ваша|твоя)\\b|^\\s*если\\b[^.!?]{0,60},\\s*(?:следующ|эти|это|вот)"
     },
     {
       "id": 11,
@@ -118,7 +158,11 @@
       "on_screen": "5 EDITS. #4 IS THE ONE.",
       "best_for": "Retention through the middle: naming a favourite gives people a reason to stay past three.",
       "trap": "N above seven. Nobody believes you have nine good ones, and you do not.",
-      "match": "^\\s*(?:here are\\s+)?\\d+\\s+\\w+|\\bnumber \\d+\\b|\\b(?:three|four|five|seven|ten)\\s+\\w+\\s+(?:every|that|you)\\b"
+      "match": "^\\s*(?:here are\\s+)?\\d+\\s+\\w+|\\bnumber \\d+\\b|\\b(?:three|four|five|seven|ten)\\s+\\w+\\s+(?:every|that|you)\\b",
+      "template_ru": "{N} {вещей}, которые {результат}. Номер {k} не использует никто.",
+      "example_ru": "Пять фото, которые продают квартиру. Четвёртое не делает никто.",
+      "on_screen_ru": "5 ФОТО, КОТОРЫЕ ПРОДАЮТ",
+      "match_ru": "^\\s*(?:\\d+|три|четыре|пять|семь|десять)\\s+\\w+[^.!?]{0,40}|(?:номер|пункт)\\s+\\d+\\b[^.!?]{0,30}никто"
     },
     {
       "id": 12,
@@ -128,7 +172,11 @@
       "on_screen": "\"I HATE BEING ON CAMERA\"",
       "best_for": "Selling to the people who already said no once.",
       "trap": "Inventing the objection. Pull it verbatim from a DM or a comment, including the bad grammar.",
-      "match": "^\\s*[\\\"“'][^\\\"”']{5,120}[\\\"”'][,.]?\\s*(?:fine|ok|okay|sure|right|here)"
+      "match": "^\\s*[\\\"“'][^\\\"”']{5,120}[\\\"”'][,.]?\\s*(?:fine|ok|okay|sure|right|here)",
+      "template_ru": "«{Возражение дословно}». Ладно. Вот как это работает всё равно.",
+      "example_ru": "«Я сам продам, без риелтора». Ладно. Вот что обычно происходит через два месяца.",
+      "on_screen_ru": "«САМ ПРОДАМ»",
+      "match_ru": "^\\s*[«\\\"][^»\\\"]{3,80}[»\\\"]\\s*[.!]?\\s*(?:ладно|окей|ок|хорошо)\\b"
     },
     {
       "id": 13,
@@ -138,7 +186,11 @@
       "on_screen": "MARCH  /  NOW",
       "best_for": "Anything visual. The cut between the two frames is the hook, the words are secondary.",
       "trap": "Three levers. Name one thing that changed or the transformation stops being believable.",
-      "match": "\\b(?:this|that) was\\b[^.!?]*[.!?]\\s*(?:this|that) is\\b|\\bbefore\\b[^.!?]*\\bafter\\b|\\bi (?:look|looked) back at\\b"
+      "match": "\\b(?:this|that) was\\b[^.!?]*[.!?]\\s*(?:this|that) is\\b|\\bbefore\\b[^.!?]*\\bafter\\b|\\bi (?:look|looked) back at\\b",
+      "template_ru": "{Было}. {Стало}. {Одна фраза про рычаг}.",
+      "example_ru": "Так квартира выглядела в объявлении в марте. Так сейчас. Поменял только фото и первую строчку.",
+      "on_screen_ru": "БЫЛО / СТАЛО",
+      "match_ru": "\\b(?:так\\b[^.!?]{0,25}\\bвыглядел\\w*|было\\b[^.!?]{0,30}\\bстало)\\b"
     },
     {
       "id": 14,
@@ -148,7 +200,11 @@
       "on_screen": "PHOTOGRAPHERS UNDER $2K",
       "best_for": "Cutting a broad audience down to the one that converts. Send rate goes up because people tag each other.",
       "trap": "A group so large it is not a callout. 'Entrepreneurs' is not a group.",
-      "match": "^\\s*(?:every|all|any)\\s+\\w+|^\\s*[a-z][\\w ]{2,28}(?:ers|ists|ors|ants)\\b\\s*[,:]|^\\s*for (?:viewers|people|anyone|those|everyone)\\b|^\\s*(?:attention|listen up)\\b"
+      "match": "^\\s*(?:every|all|any)\\s+\\w+|^\\s*[a-z][\\w ]{2,28}(?:ers|ists|ors|ants)\\b\\s*[,:]|^\\s*for (?:viewers|people|anyone|those|everyone)\\b|^\\s*(?:attention|listen up)\\b",
+      "template_ru": "{Конкретная группа}, это то, что вы игнорируете.",
+      "example_ru": "Продаёте квартиру с маткапиталом? Вот бумага, которую вы откладываете.",
+      "on_screen_ru": "ДЛЯ ТЕХ, У КОГО МАТКАПИТАЛ",
+      "match_ru": "^\\s*(?:продаёте|продаете|покупаете|берёте|берете)\\b[^.!?]{0,40}\\?|\\b(?:вы|ты) (?:игнорируете|откладываете|игнорируешь|откладываешь)\\b"
     },
     {
       "id": 15,
@@ -158,7 +214,11 @@
       "on_screen": "47 FLOPS, THEN THIS",
       "best_for": "People at the start, which is most of the audience. High comment rate.",
       "trap": "Making the change sound like luck. If the answer is 'I got lucky', there is no video.",
-      "match": "\\bmy first\\s+\\d+\\b|\\bfirst\\s+\\d+\\s+(?:reels?|videos?|posts?|clients?|months?)\\b"
+      "match": "\\bmy first\\s+\\d+\\b|\\bfirst\\s+\\d+\\s+(?:reels?|videos?|posts?|clients?|months?)\\b",
+      "template_ru": "Мои первые {N} {попыток} провалились. Вот что изменилось на {N+1}.",
+      "example_ru": "Мои первые 20 показов не дали ни одной сделки. На 21-м я поменял одну вещь.",
+      "on_screen_ru": "20 ПОКАЗОВ — НОЛЬ",
+      "match_ru": "\\bмои первые\\s+\\d+|\\bпервые\\s+\\d+\\b[^.!?]{0,30}(?:провал|ничего|ноль|ни одн)"
     },
     {
       "id": 16,
@@ -168,7 +228,11 @@
       "on_screen": "ASKED EVERY WEEK",
       "best_for": "Search. A question typed the way people type it is what Instagram search is matching against.",
       "trap": "Tidying the question up. The value is that it is in their words, typos and all.",
-      "match": "^\\s*[\\\"“']?(?:how|what|what'?s|why|when|where|who|which|can|should|do|does|did|is|are|have you|would you)\\b[^?]{3,110}\\?"
+      "match": "^\\s*[\\\"“']?(?:how|what|what'?s|why|when|where|who|which|can|should|do|does|did|is|are|have you|would you)\\b[^?]{3,110}\\?",
+      "template_ru": "«{Вопрос дословно}» — меня спрашивают каждую неделю.",
+      "example_ru": "«Можно ли продать квартиру в ипотеке?» Меня спрашивают об этом каждую неделю.",
+      "on_screen_ru": "«А В ИПОТЕКЕ МОЖНО?»",
+      "match_ru": "^\\s*[«\\\"][^»\\\"]{3,100}\\?[»\\\"].{0,10}(?:спрашива|задают)"
     },
     {
       "id": 17,
@@ -178,7 +242,11 @@
       "on_screen": "CAROUSELS vs REELS",
       "best_for": "Comments. People arrive already holding an opinion, which is the point.",
       "trap": "Refusing to pick. A comparison with a diplomatic ending is a video with no ending.",
-      "match": "\\b(?:vs\\.?|versus)\\b|\\bdifferences? between\\b|\\b(?:a|the) or (?:b|the)\\b"
+      "match": "\\b(?:vs\\.?|versus)\\b|\\bdifferences? between\\b|\\b(?:a|the) or (?:b|the)\\b",
+      "template_ru": "{А} против {Б}. Я пробовал оба {время}, и это даже не близко.",
+      "example_ru": "Авито против ЦИАН. Я выставлял на обоих три месяца, и разница не в пользу второго.",
+      "on_screen_ru": "АВИТО VS ЦИАН",
+      "match_ru": "\\b\\w+\\s+(?:против|vs\\.?|или)\\s+\\w+[.?!]\\s*я\\b|\\bпротив\\b[^.!?]{0,40}\\bне близко"
     },
     {
       "id": 18,
@@ -188,7 +256,11 @@
       "on_screen": "WATCH THIS",
       "best_for": "Screen recordings and anything with a visible result. No setup at all, the hand is already moving.",
       "trap": "A result that takes twelve seconds to arrive. If the payoff is slow, cut to it and show the wait afterwards.",
-      "match": "^\\s*watch (?:what|this|me)\\b|^\\s*(?:let me|lemme) show you\\b|^\\s*repeat after me\\b"
+      "match": "^\\s*watch (?:what|this|me)\\b|^\\s*(?:let me|lemme) show you\\b|^\\s*repeat after me\\b",
+      "template_ru": "{Начни посреди действия}. Смотри, что это делает.",
+      "example_ru": "Смотри, что будет, если вбить кадастровый номер вот сюда.",
+      "on_screen_ru": "СМОТРИ",
+      "match_ru": "^\\s*(?:смотри|смотрите|глянь|гляньте)\\b[^.!?]{0,20}(?:что|как)"
     },
     {
       "id": 19,
@@ -198,7 +270,11 @@
       "on_screen": "BEFORE YOU POST AGAIN",
       "best_for": "Urgency that is real. Platform changes, seasonal windows, policy updates.",
       "trap": "Manufactured urgency. One fake deadline and every future one is discounted.",
-      "match": "\\bbefore (?:you|it|they|the)\\b[^.!?]*\\b(?:change|changes|end|ends|close|closes|expires|goes)\\b|\\bchanges on\\b|\\bby 20\\d\\d\\b"
+      "match": "\\bbefore (?:you|it|they|the)\\b[^.!?]*\\b(?:change|changes|end|ends|close|closes|expires|goes)\\b|\\bchanges on\\b|\\bby 20\\d\\d\\b",
+      "template_ru": "{Что-то} меняется {дата}. Сделай {действие} до этого.",
+      "example_ru": "С 1 января меняются правила семейной ипотеки. Подай заявку до этого.",
+      "on_screen_ru": "С 1 ЯНВАРЯ — ВСЁ",
+      "match_ru": "\\b(?:с|до)\\s+\\d{1,2}\\s+(?:январ|феврал|март|апрел|ма[яй]|июн|июл|август|сентябр|октябр|ноябр|декабр)\\w*|\\bуспей\\b"
     },
     {
       "id": 20,
@@ -208,7 +284,11 @@
       "on_screen": "YOU DON'T NEED A NICHE",
       "best_for": "Relief. Very high save rate, because it removes a blocker rather than adding a task.",
       "trap": "Removing the blocker and putting nothing in its place. The second half is the whole video.",
-      "match": "\\byou (?:do not|don'?t|dont) need\\b|\\bstop (?:trying to|worrying about)\\b"
+      "match": "\\byou (?:do not|don'?t|dont) need\\b|\\bstop (?:trying to|worrying about)\\b",
+      "template_ru": "Тебе не нужен {то, что все называют обязательным}.",
+      "example_ru": "Тебе не нужен первоначальный взнос 30%, чтобы купить квартиру.",
+      "on_screen_ru": "НЕ НУЖНО 30%",
+      "match_ru": "^\\s*(?:тебе|вам) не (?:нуж|обязательн)\\w*"
     },
     {
       "id": 21,
@@ -218,7 +298,11 @@
       "on_screen": "HE ASKED FOR A REFUND",
       "best_for": "Stories. Starting mid-scene makes the viewer feel they arrived late, which is a reason to stay.",
       "trap": "Never going back to fill in the gap. Deliver the setup by second eight or it reads as a mistake.",
-      "match": "^\\s*(?:\\.\\.\\.|…)|^\\s*(?:and (?:that'?s|that is|then) when|so (?:he|she|they) (?:said|asked))\\b|^\\s*(?:uh|um)\\b"
+      "match": "^\\s*(?:\\.\\.\\.|…)|^\\s*(?:and (?:that'?s|that is|then) when|so (?:he|she|they) (?:said|asked))\\b|^\\s*(?:uh|um)\\b",
+      "template_ru": "…и вот тогда {поворот}.",
+      "example_ru": "…и вот тогда покупатель попросил вернуть задаток. Через три дня после подписания.",
+      "on_screen_ru": "…И ТУТ",
+      "match_ru": "^\\s*(?:…|\\.\\.\\.)\\s*|^\\s*и вот тогда\\b"
     },
     {
       "id": 22,
@@ -228,7 +312,11 @@
       "on_screen": "NICE GUYS FINISH FIRST",
       "best_for": "Comments. The viewer has to stop and check whether they misheard you.",
       "trap": "Flipping a saying nobody says. The original has to be a reflex, or the inversion is just a sentence.",
-      "match": "^\\s*[A-Za-z][\\w' ]{2,34}\\b(?:finish|finishes|win|wins|lose|loses|beats?|is|are)\\s+(?:first|last|dead|wrong|right|better|overrated|underrated)\\b"
+      "match": "^\\s*[A-Za-z][\\w' ]{2,34}\\b(?:finish|finishes|win|wins|lose|loses|beats?|is|are)\\s+(?:first|last|dead|wrong|right|better|overrated|underrated)\\b",
+      "template_ru": "{Известная фраза, перевёрнутая}.",
+      "example_ru": "Недвижимость — не лучшее вложение.",
+      "on_screen_ru": "НЕ ЛУЧШЕЕ ВЛОЖЕНИЕ",
+      "match_ru": "^\\s*\\w+\\s*—\\s*(?:не|это не)\\b"
     },
     {
       "id": 23,
@@ -238,7 +326,11 @@
       "on_screen": "33% NEVER READ AGAIN",
       "best_for": "Sends. A number a person can repeat at dinner gets sent to somebody.",
       "trap": "A statistic you cannot source. Say where it came from in the video or do not use it.",
-      "match": "^\\s*\\d[\\d,.]*\\s?%|\\b\\d[\\d,.]*\\s?%\\s+of\\b"
+      "match": "^\\s*\\d[\\d,.]*\\s?%|\\b\\d[\\d,.]*\\s?%\\s+of\\b",
+      "template_ru": "{N}% {группы} {неожиданный факт}.",
+      "example_ru": "70% квартир в Абакане продаются ниже первой цены в объявлении.",
+      "on_screen_ru": "70% — НИЖЕ ЦЕНЫ",
+      "match_ru": "^\\s*\\d+[.,]?\\d*\\s*(?:%|процент)"
     },
     {
       "id": 24,
@@ -248,7 +340,11 @@
       "on_screen": "THE NEW ONE",
       "best_for": "Anything physical or visual. The object is the hook and the words are captions on it.",
       "trap": "Holding the thing up without saying what it changes. A reveal with no stake is an advert.",
-      "match": "^\\s*(?:so,?\\s+)?(?:this|these|here) (?:is|are)\\s+(?:the\\s+)?(?:new|my new)\\b|^\\s*(?:so,?\\s+)?this (?:new|tiny|little)\\b|^\\s*this \\w+ has (?:the|a)\\b"
+      "match": "^\\s*(?:so,?\\s+)?(?:this|these|here) (?:is|are)\\s+(?:the\\s+)?(?:new|my new)\\b|^\\s*(?:so,?\\s+)?this (?:new|tiny|little)\\b|^\\s*this \\w+ has (?:the|a)\\b",
+      "template_ru": "Это новый {объект}.",
+      "example_ru": "Это новый дом на Пушкина, и в нём решили то, что бесило всех в старых.",
+      "on_screen_ru": "НОВЫЙ ДОМ",
+      "match_ru": "^\\s*это (?:новый|новая|новое|новые)\\b"
     },
     {
       "id": 25,
@@ -258,7 +354,11 @@
       "on_screen": "1M SUBS IN ONE MONTH",
       "best_for": "Proof when the user does not have their own number yet. Third-person is allowed if it is true.",
       "trap": "No name and no link. An anonymous miracle is a rumour.",
-      "match": "\\bthere (?:was|is) (?:one|a|this)\\b|\\b(?:one|a) (?:guy|girl|creator|student|founder|kid|client|friend) (?:i know |who |that )(?:\\w+ed|grew|made|built|went|took|got|hit)\\b|\\bwe had a new\\b"
+      "match": "\\bthere (?:was|is) (?:one|a|this)\\b|\\b(?:one|a) (?:guy|girl|creator|student|founder|kid|client|friend) (?:i know |who |that )(?:\\w+ed|grew|made|built|went|took|got|hit)\\b|\\bwe had a new\\b",
+      "template_ru": "Был один {человек}, который {результат} за {время}.",
+      "example_ru": "Был один клиент, который продал однушку за неделю, не снижая цену.",
+      "on_screen_ru": "ПРОДАЛ ЗА НЕДЕЛЮ",
+      "match_ru": "^\\s*(?:был|была|есть) (?:один|одна|у меня)\\b[^.!?]{0,20}(?:клиент|человек|продав|покупат)"
     },
     {
       "id": 26,
@@ -268,7 +368,11 @@
       "on_screen": "THE FASTEST WAY",
       "best_for": "One-claim videos with no story attached. It is the most common shape in the wild and the easiest to write badly.",
       "trap": "A superlative with a soft answer. If the second half is 'consistency', you have said nothing and the comments will tell you.",
-      "match": "^\\s*(?:the\\s+)?(?:fastest|quickest|best|worst|biggest|greatest|easiest|hardest|only|number one|#1|most important)\\s+\\w+|\\bthe (?:fastest|best|worst|biggest|greatest|only) way to\\b"
+      "match": "^\\s*(?:the\\s+)?(?:fastest|quickest|best|worst|biggest|greatest|easiest|hardest|only|number one|#1|most important)\\s+\\w+|\\bthe (?:fastest|best|worst|biggest|greatest|only) way to\\b",
+      "template_ru": "Самый {быстрый / большой / единственный} {способ} — {ответ}.",
+      "example_ru": "Самый быстрый способ продать квартиру — поставить цену на 3% ниже рынка в первую неделю.",
+      "on_screen_ru": "САМЫЙ БЫСТРЫЙ СПОСОБ",
+      "match_ru": "^\\s*(?:самый|самая|самое|единственн)\\w*\\b[^.!?]{0,60}(?:—|\\s-\\s|\\bэто\\b)"
     }
   ],
   "classify_order": [
@@ -298,5 +402,6 @@
     22,
     11,
     14
-  ]
+  ],
+  "note_ru": "Русские версии лежат в полях template_ru / example_ru / on_screen_ru / match_ru. Примеры под риелторский контент; цифры в них условные, в своих хуках ставь свои."
 }
